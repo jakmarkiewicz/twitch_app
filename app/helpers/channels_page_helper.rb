@@ -1,0 +1,2 @@
+module ChannelsPageHelper
+end
