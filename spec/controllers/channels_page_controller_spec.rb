@@ -9,4 +9,11 @@ describe ChannelsPageController do
     end
   end
 
+  describe "should recieve channel/viewer number API info with JSON" do
+  	it "responds with JSON" do
+  		get 'home'
+		pending "add JSON tests"
+  	end
+  end
+
 end

@@ -1,0 +1,35 @@
+<h1>Top streams:</h1>
+
+
+<% @return_streams["streams"].length.times do |stream| %>
+	<div class="meta">
+		<%= link_to image_tag(@return_streams["streams"][stream]["preview"]["medium"], :class => "img_medium" ),@return_streams["streams"][stream]["channel"]["url"] %>
+		<div class="meta-info">
+			<i class="icon-user"></i>
+			<%= @return_streams["streams"][stream]["channel"]["name"] %> 
+			<br>
+			<i class="icon-eye-open"></i>
+			<%= @return_streams["streams"][stream]["viewers"] %> viewers
+			<br>
+			<i class="icon-book"></i>
+			playing <%= @return_streams["streams"][stream]["game"] %> 
+			<br>
+			<i class="icon-time"></i>
+			<%= @return_streams["streams"][stream]["channel"]["created_at"].match(/^[0-9]*.[0-9]*.[0-9]+/) %> created at
+			<br>
+			<i class="icon-heart"></i>
+			<%= return_followers(@return_streams["streams"][stream]["channel"]["name"]) %>
+			followers
+			<br>
+			<i class="icon-facetime-video"></i>
+			<%= return_videos_number(@return_streams["streams"][stream]["channel"]["name"]) %>
+			videos created
+			<br>
+
+		</div>
+	</div>
+<% end %>
+
+
+
+<%= debug @return_streams %>

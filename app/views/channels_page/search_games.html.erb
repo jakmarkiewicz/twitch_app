@@ -1,0 +1,17 @@
+<h1>ChannelsPage#search_games</h1>
+<p>Find me in app/views/channels_page/search_games.html.erb</p>
+
+
+<%= form_tag("/channels_page/search_streams", :method => "get") do %>
+  <%= label_tag(:search_id, "Search for:") %>
+  <%= text_field_tag(:search_id, nil, :placeholder => 'Enter search term...') %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% @search_games_result["streams"].length.times do |stream| %>
+	<%= link_to image_tag(@search_games_result["streams"][stream]["preview"]["medium"]),
+		@search_games_result["streams"][stream]["channel"]["url"] %>
+	<%= @search_games_result["streams"][stream]["viewers"] %> viewers
+<% end %>
+
+<%= debug @search_games_result %>

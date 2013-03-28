@@ -1,4 +1,10 @@
 TwitchApp::Application.routes.draw do
+  get "directory/streams"
+
+  get "channels_page/search_games"
+
+  get "channels_page/search_streams"
+
   get "channels_page/home"
 
   # The priority is based upon order of creation:

@@ -1,2 +1,24 @@
-<h1>ChannelsPage#home</h1>
+<h1>Channels Home</h1>
 <p>Find me in app/views/channels_page/home.html.erb</p>
+
+Number of channels: <%= @channel_number %><br>
+Number of viewers: <%= @viewer_number %><br>
+
+Top 5 games: 
+			<% @games_top_img[0..4].each do |img_link| %>
+				<%= image_tag img_link %>
+			<% end %>
+
+			<br>
+			<% @search_answer[0..4].each do |img_link| %>
+				<%= image_tag img_link %>
+			<% end %>
+
+			<br>
+			<%= @url %><%= image_tag @preview %><%= @name %>
+			
+			<%= link_to image_tag(@preview), @url %>
+		    
+
+
+<%= debug @preview %>

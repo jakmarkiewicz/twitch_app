@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+ .img_medium {
+	height: 120px;
+	padding: 5px;
+}
+
+.meta {
+	text-align: middle;
+	display: inline-block;
+}
+
+.meta-info {
+	
+}
