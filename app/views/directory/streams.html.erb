@@ -1,18 +1,49 @@
-<h1>Top streams:</h1>
+<h2>Top games:</h2>
 
+<div class="hide-top-games">
+<div class="top-games">
+<%= link_to "All Games", directory_streams_path %>
+<% @return_games["top"].length.times do |game| %>
+	<%= link_to @return_games["top"][game]["game"]["name"], directory_streams_path(:action => 'streams', :game_id => @return_games["top"][game]["game"]["name"]) %>
+	(<%= number_with_delimiter(@return_games["top"][game]["viewers"]) %>), 
+<% end %>
+</div>
+</div>
+
+<a href="#" rel="tooltip" title="some content">hint</a>
+
+<h2>Top streams:</h2>
 
 <% @return_streams["streams"].length.times do |stream| %>
 	<div class="meta">
-		<%= link_to image_tag(@return_streams["streams"][stream]["preview"]["medium"], :class => "img_medium" ),@return_streams["streams"][stream]["channel"]["url"] %>
+		<%= link_to image_tag(@return_streams["streams"][stream]["preview"]["medium"], :class => "img_medium" ), directory_channel_path(:action => 'channel', :id => @return_streams["streams"][stream]["channel"]["name"]) %>
 		<div class="meta-info">
 			<i class="icon-user"></i>
 			<%= @return_streams["streams"][stream]["channel"]["name"] %> 
-			<br>
+			&nbsp; &nbsp; &nbsp; 
 			<i class="icon-eye-open"></i>
 			<%= @return_streams["streams"][stream]["viewers"] %> viewers
 			<br>
+
+<%
+=begin %>
 			<i class="icon-book"></i>
-			playing <%= @return_streams["streams"][stream]["game"] %> 
+			playing <%= truncate(@return_streams["streams"][stream]["game"], length: 17) %> 
+			<br>
+			
+<%
+=end %>
+
+<%
+=begin %>
+			<i class="icon-facetime-video"></i>
+<%
+=end %>
+			<div class="meta-info-status">
+			<%= truncate(@return_streams["streams"][stream]["channel"]["status"], length: 45) %>
+			</div>
+<%
+=begin %>
 			<br>
 			<i class="icon-time"></i>
 			<%= @return_streams["streams"][stream]["channel"]["created_at"].match(/^[0-9]*.[0-9]*.[0-9]+/) %> created at
@@ -26,10 +57,21 @@
 			videos created
 			<br>
 
+<%
+=end %>
+
 		</div>
 	</div>
 <% end %>
 
 
+<script language="javascript">
+$(document).ready(function() {
 
+	$(".hide-top-games").shorten({showChars: 100});
+
+ });
+</script>
+
+<%= debug @return_games %>
 <%= debug @return_streams %>

@@ -1,4 +1,6 @@
 TwitchApp::Application.routes.draw do
+  get "directory/channel"
+
   get "directory/streams"
 
   get "channels_page/search_games"

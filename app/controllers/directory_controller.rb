@@ -1,8 +1,20 @@
 class DirectoryController < ApplicationController
   def streams
+    require 'uri'
   	require 'open-uri'
   	require 'json'
-  	@return_streams = JSON.parse(open("https://api.twitch.tv/kraken/streams").read)
+    if params[:game_id].present?
+      @game_id = params[:game_id].gsub!(/ /, '+')
+      @return_streams = JSON.parse(open("https://api.twitch.tv/kraken/streams?limit=10&offset=0&game="+@game_id).read)
+    else
+      @return_streams = JSON.parse(open("https://api.twitch.tv/kraken/streams?limit=10&offset=0").read)
+    end
+  	
+    @return_games = JSON.parse(open("https://api.twitch.tv/kraken/games/top?limit=100&offset=0").read)
+  end
+
+  def channel
+    @channel_id = params[:id]
   end
 
   def return_followers(channel_name)

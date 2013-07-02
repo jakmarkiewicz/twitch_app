@@ -13,15 +13,63 @@
  */
 
  .img_medium {
-	height: 120px;
+	height: 161px;
 	padding: 5px;
 }
 
 .meta {
 	text-align: middle;
 	display: inline-block;
+	margin-bottom: 2px;
 }
 
 .meta-info {
-	
+	font-size: 11px;
+	margin-top: -162px;
+	margin-left: 10px;
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	position: absolute;
+	width: 246px;
+	text-align: center;
+}
+
+.meta-info-status {
+	margin-top: 105px;
+	margin-left: -8px;
+	padding: 3px;
+	padding-left: 7px;
+	padding-right: 7px;
+	width: 251px;
+	background-color: rgb(52, 39, 104);
+	z-index: 0;
+	position: absolute;
+	color: rgb(255, 255, 255);
+}
+
+.channel {
+	text-align: middle;
+	height: 100%;
+	position: relative;
+	margin-right: 300px;
+}
+
+.chat {
+	text-align: middle;
+	display: inline-block;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+body { 
+	overflow: ;
+}
+
+
+.top-games {
+	font-size: 10px;
+	color: rgb(141, 141, 141);
 }

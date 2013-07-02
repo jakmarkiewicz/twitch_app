@@ -1,0 +1,17 @@
+<%
+=begin %>
+<%= @return_streams["name"]%> 
+<%
+=end %>
+<div class="channel">
+<object type="application/x-shockwave-flash" height="100%" width="100%" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=<%= @channel_id %>" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel=<%= @channel_id %>&auto_play=true&start_volume=50" /></object>
+</div>
+<div class="chat">
+<iframe frameborder="0" scrolling="no" id="chat_embed" src="http://twitch.tv/chat/embed?channel=<%= @channel_id %> &amp;popout_chat=false" height="100%" width="300"></iframe>
+</div>
+<%
+=begin %>
+<%= debug @return_streams %>
+<%
+=end %>
+
